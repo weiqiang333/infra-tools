@@ -1,0 +1,15 @@
+<html>
+<title>GrowingIO 文件下载系统</title>
+<h1>
+    GrowingIO files download system
+</h1>
+    <br>
+        <b>支持下载路径</b>
+    <br/>
+    <br>
+    {{ range .dir}}
+        <br>
+        <a href="/download{{ . }}">{{ . }}</a>
+        <br/>
+    {{ end }}
+</html>

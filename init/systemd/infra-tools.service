@@ -1,0 +1,12 @@
+[Unit]
+Description=infra tools
+
+[Service]
+User=apps
+Group=apps
+Restart=always
+EnvironmentFile=/etc/sysconfig/infra-tools
+ExecStart=/usr/sbin/infra-tools $OPTIONS
+
+[Install]
+WantedBy=multi-user.target
