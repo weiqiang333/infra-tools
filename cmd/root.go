@@ -22,8 +22,8 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"infra-tools/web"
-	"infra-tools/model"
+	"infra-tools-fileserver/web"
+	"infra-tools-fileserver/model"
 )
 
 var cfgFile string

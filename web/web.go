@@ -3,7 +3,7 @@ package web
 import (
 	"github.com/gin-gonic/gin"
 
-	"infra-tools/internal/fileserver"
+	"infra-tools-fileserver/internal/fileserver"
 )
 
 // Web 监控路由入口

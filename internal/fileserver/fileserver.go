@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"infra-tools/model"
+	"infra-tools-fileserver/model"
 )
 
 // FileDownload 允许下载目录管理
