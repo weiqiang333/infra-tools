@@ -5,8 +5,8 @@ Description=infra tools
 User=apps
 Group=apps
 Restart=always
-EnvironmentFile=/etc/sysconfig/infra-tools-fileserver
-ExecStart=/usr/sbin/infra-tools-fileserver $OPTIONS
+EnvironmentFile=/etc/sysconfig/infra-tools
+ExecStart=/usr/sbin/infra-tools $OPTIONS
 
 [Install]
 WantedBy=multi-user.target

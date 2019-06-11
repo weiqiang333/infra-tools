@@ -5,18 +5,20 @@ File download server with breakpoint continuation
 
 # use
 
-infra-tools-fileserver -h
+infra-tools -h
 ```
+    infra Tools for Systems.
+        fileserver: It supports breakpoint continuation and segment Download.
+    
     Usage:
-      infra-files-server [flags]
-      infra-files-server [command]
+      infra-tools [command]
     
     Available Commands:
+      fileserver  infra Tools for fileserver
       help        Help about any command
-      version     Current version of file system
+      version     Current version
     
     Flags:
           --config string   config file (default is $HOME/.infra-files-server.yaml)
-      -d, --dir strings     Absolute path: /data/,/apps/svr/ (default [/tmp/])
-      -h, --help            help for infra-files-server
+      -h, --help            help for infra-tools
 ```

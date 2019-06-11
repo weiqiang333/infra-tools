@@ -21,25 +21,19 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-
-	"infra-tools-fileserver/web"
-	"infra-tools-fileserver/model"
 )
 
 var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "infra-files-server",
-	Short: "Server File Download System",
-	Long: `Server file download system.
-	It supports breakpoint continuation and segment Download.`,
+	Use:   "infra-tools",
+	Short: "infra Tools for Systems",
+	Long: `infra Tools for Systems.
+	fileserver: It supports breakpoint continuation and segment Download.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//	Run: func(cmd *cobra.Command, args []string) { },
-	Run: func(cmd *cobra.Command, args []string) {
-		web.Web()
-	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -62,7 +56,6 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	//rootCmd.Flags().StringVarP(&model.Dir, "dir","d", "/tmp", "Absolute path")
-	rootCmd.Flags().StringSliceVarP(&model.Dir, "dir","d", []string{"/tmp/"}, "Absolute path: /data/,/apps/svr/")
 }
 
 // initConfig reads in config file and ENV variables if set.

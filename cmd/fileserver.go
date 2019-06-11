@@ -15,32 +15,34 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
+
+	"infra-tools/web"
+	"infra-tools/model"
 )
 
-// versionCmd represents the version command
-var versionCmd = &cobra.Command{
-	Use:   "version",
-	Short: "Current version",
-	Long: `infra Tools for Systems.
-	Version command to view current version.`,
+// fileserverCmd represents the fileserver command
+var fileserverCmd = &cobra.Command{
+	Use:   "fileserver",
+	Short: "infra Tools for fileserver",
+	Long: `infra Tools for fileserver:
+	It supports breakpoint continuation and segment Download.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("version 0.2")
+		web.Web()
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(fileserverCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// versionCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// fileserverCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// versionCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// fileserverCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	fileserverCmd.Flags().StringSliceVarP(&model.Dir, "dir","d", []string{"/tmp/"}, "Absolute path: /data/,/apps/svr/")
 }

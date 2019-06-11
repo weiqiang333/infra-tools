@@ -14,7 +14,7 @@
 
 package main
 
-import "infra-tools-fileserver/cmd"
+import "infra-tools/cmd"
 
 func main() {
 	cmd.Execute()
