@@ -30,7 +30,8 @@ var rootCmd = &cobra.Command{
 	Use:   "infra-tools",
 	Short: "infra Tools for Systems",
 	Long: `infra Tools for Systems.
-	fileserver: It supports breakpoint continuation and segment Download.`,
+	fileserver: It supports breakpoint continuation and segment Download.
+	ec2Volumes: It's a volume management tool`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//	Run: func(cmd *cobra.Command, args []string) { },
