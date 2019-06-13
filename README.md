@@ -6,6 +6,7 @@ Currently supports the following features:
 ```
     fileserver: It supports breakpoint continuation and segment Download.
     ec2Volumes: It's a volume management tool
+        Authentication uses default mode [`credentials files`](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-configure-files.html)
 ```
 
 
@@ -29,32 +30,6 @@ Currently supports the following features:
     Flags:
           --config string   config file (default is $HOME/.infra-files-server.yaml)
       -h, --help            help for infra-tools
-```
-
-- infra-tools fileserver -h
-```
-Usage:
-  infra-tools fileserver [flags]
-
-Flags:
-  -d, --dir strings   Absolute path: /data/,/apps/svr/ (default [/tmp/])
-  -h, --help          help for fileserver
-```
-
-- infra-tools ec2Volumes -h
-```
-Usage:
-  infra-tools ec2Volumes [flags]
-
-Flags:
-  -h, --help                  help for ec2Volumes
-  -m, --modify                Modify Volume (default false)
-      --modify-size int       Modify volume size
-      --modify-size-add int   Modify the volume size incrementally
-                              modify-size priority is higher
-  -s, --size int64Slice       Filter Volume size range
-                              If the length of the parameter value is 1, Filter volumes of the same size (default [10,9999])
-  -t, --tag strings           Filter tag value (default [App:kubernetes])
 ```
 
 

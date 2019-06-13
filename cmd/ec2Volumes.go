@@ -36,7 +36,7 @@ var ec2VolumesCmd = &cobra.Command{
 			fmt.Println(err.Error())
 			return
 		}
-		tag_map := make(map[string]string)
+		tagMap := make(map[string]string)
 		for _, tag := range tags {
 			t := strings.Split(tag, ":")
 			if len(t) != 2 {
@@ -44,7 +44,7 @@ var ec2VolumesCmd = &cobra.Command{
 				return
 			}
 			k, y := t[0], t[1]
-			tag_map[k] = y
+			tagMap[k] = y
 		}
 		sizes, err := cmd.Flags().GetInt64Slice("size")
 		if err != nil {
@@ -53,7 +53,7 @@ var ec2VolumesCmd = &cobra.Command{
 		}
 
 		// 读取卷信息
-		volumes.ReadVolume(tag_map, sizes)
+		volumes.ReadVolume(tagMap, sizes)
 
 		modify, err := cmd.Flags().GetBool("modify")
 		if err != nil {

@@ -74,7 +74,7 @@ func ReadVolume(tags map[string]string, size []int64)  {
 		v := model.Volumes{}
 		v.Name = name
 		v.Size = *volume.Size
-		v.VolumesId = *volume.VolumeId
+		v.VolumesID = *volume.VolumeId
 		v.VolumeType = *volume.VolumeType
 		volumes = append(volumes, v)
 		fmt.Println(v)
@@ -94,12 +94,12 @@ func ModifyVolume(modifySize int64, modifySizeAdd int64)  {
 		fmt.Print(i, "\t", volume, "\n\t")
 		if modifySize == 0 {
 			input = &ec2.ModifyVolumeInput{
-				VolumeId: aws.String(volume.VolumesId),
+				VolumeId: aws.String(volume.VolumesID),
 				Size: aws.Int64(volume.Size + modifySizeAdd),
 			}
 		} else {
 			input = &ec2.ModifyVolumeInput{
-				VolumeId: aws.String(volume.VolumesId),
+				VolumeId: aws.String(volume.VolumesID),
 				Size: aws.Int64(modifySize),
 			}
 		}
