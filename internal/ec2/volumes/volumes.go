@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/endpoints"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ec2"
@@ -42,16 +41,7 @@ func ReadVolume(tags map[string]string, size []int64)  {
 	}
 	result, err := svc.DescribeVolumes(input)
 	if err != nil {
-		if aerr, ok := err.(awserr.Error); ok {
-			switch aerr.Code() {
-			default:
-				fmt.Println(aerr.Error())
-			}
-		} else {
-			// Print the error, cast err to awserr.Error to get the Code and
-			// Message from an error.
-			fmt.Println(err.Error())
-		}
+		fmt.Println(err.Error())
 		return
 	}
 	for _, volume := range result.Volumes{
@@ -60,10 +50,8 @@ func ReadVolume(tags map[string]string, size []int64)  {
 			if *volume.Size != size[0] {
 				continue
 			}
-		} else {
-			if size[0] > *volume.Size || *volume.Size > size[len(size)-1] {
-				continue
-			}
+		} else if size[0] > *volume.Size || *volume.Size > size[len(size)-1] {
+			continue
 		}
 
 		for _, tag := range volume.Tags {
@@ -107,16 +95,7 @@ func ModifyVolume(modifySize int64, modifySizeAdd int64)  {
 		// 修改卷大小
 		result, err := svc.ModifyVolume(input)
 		if err != nil {
-			if aerr, ok := err.(awserr.Error); ok {
-				switch aerr.Code() {
-				default:
-					fmt.Println(aerr.Error())
-				}
-			} else {
-				// Print the error, cast err to awserr.Error to get the Code and
-				// Message from an error.
-				fmt.Println(err.Error())
-			}
+			fmt.Println(err.Error())
 			return
 		}
 		fmt.Println("修改前：", *result.VolumeModification.OriginalSize, "\t修改后：", *result.VolumeModification.TargetSize)
