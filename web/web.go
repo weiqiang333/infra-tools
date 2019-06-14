@@ -2,6 +2,7 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
+	"infra-tools/model"
 
 	"infra-tools/internal/fileserver"
 )
@@ -15,7 +16,9 @@ func Web()  {
 	})
 	down := router.Group("/download")
 	{
-		down.GET(":filepath/*filename", fileserver.FileDownload)
+		for _, dir := range  model.Dir {
+			down.GET(dir + "/*filepath", fileserver.FileDownload)
+		}
 	}
 	router.NoRoute(fileserver.Index)
 	router.Run()

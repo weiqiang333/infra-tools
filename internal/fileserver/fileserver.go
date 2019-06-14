@@ -2,6 +2,7 @@ package fileserver
 
 import (
 	"net/http"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 
@@ -11,15 +12,9 @@ import (
 // FileDownload 允许下载目录管理
 // http.ServeFile 实现断点续传
 func FileDownload(c *gin.Context)  {
-	filePath := "/" + c.Param("filepath") + "/"
-	fileName := c.Param("filename")
-	for _, dir := range model.Dir {
-		if filePath == dir {
-			c.File(filePath + fileName)
-			return
-		}
-	}
-	c.Redirect(301, "/download/")
+	urlpath := c.Request.URL.Path
+	filepath := strings.Split(urlpath, "/download")[1]
+	c.File(filepath)
 	return
 }
 
