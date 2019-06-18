@@ -1,0 +1,5 @@
+# alibaba cloud
+alicloud:
+  region-id: cn-xxx
+  access-key: xxx
+  secret-key: xxx

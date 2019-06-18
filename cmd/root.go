@@ -31,7 +31,8 @@ var rootCmd = &cobra.Command{
 	Short: "infra Tools for Systems",
 	Long: `infra Tools for Systems.
 	fileserver: It supports breakpoint continuation and segment Download.
-	ec2Volumes: It's a volume management tool`,
+	ec2Volumes: It's a volume management tool.
+	alicloud: Management of Alibaba Cloud Platform Resources`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//	Run: func(cmd *cobra.Command, args []string) { },
@@ -82,5 +83,7 @@ func initConfig() {
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
-	}
+	} else {
+		fmt.Println("viper read config err:", viper.ReadInConfig())
+}
 }
