@@ -7,6 +7,7 @@ Currently supports the following features:
     fileserver: It supports breakpoint continuation and segment Download.
     ec2Volumes: It's a volume management tool
         Authentication uses default mode [`credentials files`](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-configure-files.html)
+    alicloud: Management of Alibaba Cloud Platform Resources
 ```
 
 
@@ -17,19 +18,21 @@ Currently supports the following features:
     infra Tools for Systems.
         fileserver: It supports breakpoint continuation and segment Download.
         ec2Volumes: It's a volume management tool
+        alicloud: Management of Alibaba Cloud Platform Resources
     
-    Usage:
-      infra-tools [command] [flags]
-    
-    Available Commands:
-      ec2Volumes  infra Tools for ec2Volumes
-      fileserver  infra Tools for fileserver
-      help        Help about any command
-      version     Current version
-    
-    Flags:
-          --config string   config file (default is $HOME/.infra-files-server.yaml)
-      -h, --help            help for infra-tools
+Usage:
+  infra-tools [command]
+
+Available Commands:
+  alicloud    infra Tools for alibaba cloud
+  ec2Volumes  infra Tools for ec2Volumes
+  fileserver  infra Tools for fileserver
+  help        Help about any command
+  version     Current version
+
+Flags:
+      --config string   config file (default is $HOME/.infra-tools.yaml)
+  -h, --help            help for infra-tools
 ```
 
 
