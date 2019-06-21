@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"infra-tools/model"
+	"github.com/weiqiang333/infra-tools/model"
 )
 
 // FileDownload 允许下载目录管理

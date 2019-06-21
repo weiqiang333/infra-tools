@@ -21,7 +21,7 @@ import (
 	"github.com/spf13/viper"
 	"github.com/spf13/cobra"
 
-	"infra-tools/internal/alicloud/ecs"
+	"github.com/weiqiang333/infra-tools/internal/alicloud/ecs"
 )
 
 // alicloudCmd represents the alicloud command

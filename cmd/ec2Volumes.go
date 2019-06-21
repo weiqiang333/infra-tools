@@ -21,7 +21,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"infra-tools/internal/ec2/volumes"
+	"github.com/weiqiang333/infra-tools/internal/ec2/volumes"
 )
 
 // ec2VolumesCmd represents the ec2Volumes command

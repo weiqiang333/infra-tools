@@ -17,8 +17,8 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
-	"infra-tools/web"
-	"infra-tools/model"
+	"github.com/weiqiang333/infra-tools/web"
+	"github.com/weiqiang333/infra-tools/model"
 )
 
 // fileserverCmd represents the fileserver command
