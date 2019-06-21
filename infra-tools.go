@@ -14,7 +14,7 @@
 
 package main
 
-import "infra-tools/cmd"
+import "github.com/weiqiang333/infra-tools/cmd"
 
 func main() {
 	cmd.Execute()

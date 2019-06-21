@@ -2,9 +2,9 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
-	"infra-tools/model"
 
-	"infra-tools/internal/fileserver"
+	"github.com/weiqiang333/infra-tools/model"
+	"github.com/weiqiang333/infra-tools/internal/fileserver"
 )
 
 // Web 监控路由入口
