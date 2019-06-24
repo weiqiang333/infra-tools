@@ -15,3 +15,5 @@
 .idea
 go.sum
 .arc*
+bin
+*.log
