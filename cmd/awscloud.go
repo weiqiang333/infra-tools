@@ -1,17 +1,18 @@
-// Copyright © 2019 NAME HERE <EMAIL ADDRESS>
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+/*
+Copyright © 2019 NAME HERE <EMAIL ADDRESS>
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package cmd
 
 import (
@@ -21,10 +22,17 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/weiqiang333/infra-tools/internal/ec2/volumes"
+	"github.com/weiqiang333/infra-tools/internal/awscloud/ec2/volumes"
 )
 
-// ec2VolumesCmd represents the ec2Volumes command
+// awscloudCmd represents the awscloud command
+var awscloudCmd = &cobra.Command{
+	Use:   "awscloud",
+	Short: "infra Tools for aws cloud",
+	Long: `infra Tools for aws cloud:
+	awscloud: Management of AWS Cloud Platform Resources.`,
+}
+
 var ec2VolumesCmd = &cobra.Command{
 	Use:   "ec2Volumes",
 	Short: "infra Tools for ec2Volumes",
@@ -85,17 +93,18 @@ var ec2VolumesCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(ec2VolumesCmd)
+	rootCmd.AddCommand(awscloudCmd)
+	awscloudCmd.AddCommand(ec2VolumesCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// ec2VolumesCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// awscloudCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// ec2VolumesCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// awscloudCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	ec2VolumesCmd.Flags().StringSliceP("tag","t", []string{"App:kubernetes"}, "Filter tag value")
 	ec2VolumesCmd.Flags().Int64SliceP("size", "s", []int64{10,9999}, "Filter Volume size range\n" +
 		"If the length of the parameter value is 1, Filter volumes of the same size")
